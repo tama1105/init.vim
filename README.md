@@ -20,5 +20,6 @@ sh ./installer.sh ~/.cache/dein
 pip3 install neovim
 ```
 >補足
+
 init.vim は`~/.config/nvim/`  
 `:UpdateRemotePlugins`を実行するとdeoplateのエラーが治った
