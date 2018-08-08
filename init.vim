@@ -31,10 +31,14 @@ if dein#load_state('/home/tomato/.cache/dein')
   call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
   "コード補完
   call dein#add('Shougo/deoplete.nvim')
-    " スニペットの補完機能
-  call dein#add("Shougo/neosnippet")
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hag-neovim-rpc')
+  endif
+  " スニペットの補完機能
+"  call dein#add("Shougo/neosnippet")
     " スニペット集
-  call dein#add('Shougo/neosnippet-snippets')
+"  call dein#add('Shougo/neosnippet-snippets')
   " Required:
   call dein#end()
   call dein#save_state()
@@ -116,24 +120,24 @@ syntax enable " 構文に色を付ける
 "----------------------------------------------------------
 " neocomplete・neosnippetの設定
 "----------------------------------------------------------
-"let g:python3_host_prog  = '/usr/bin/python3'
+let g:python3_host_prog  = '/usr/bin/python3'
     " Vim起動時にneocompleteを有効にする
-"    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 1
     " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-"    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_smart_case = 1
     " 3文字以上の単語に対して補完を有効にする
-"    let g:deoplete#min_keyword_length = 3
+    let g:deoplete#min_keyword_length = 3
     " 区切り文字まで補完する
-"    let g:deoplete#enable_auto_delimiter = 1
+    let g:deoplete#enable_auto_delimiter = 1
     " 1文字目の入力から補完のポップアップを表示
-"    let g:deoplete#auto_completion_start_length = 1
+    let g:deoplete#auto_completion_start_length = 1
     " バックスペースで補完のポップアップを閉じる
-"    inoremap <expr><BS> deoplete#smart_close_popup()."<C-h>"
+    inoremap <expr><BS> deoplete#smart_close_popup()."<C-h>"
 
     " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
-"    imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+    imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
     " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
-"    imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+    imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 
 "End dein Scripts-------------------------
