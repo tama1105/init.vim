@@ -39,6 +39,7 @@ if dein#load_state('/home/tomato/.cache/dein')
 "  call dein#add("Shougo/neosnippet")
     " スニペット集
 "  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('scrooloose/nerdcommenter')  
   " Required:
   call dein#end()
   call dein#save_state()
@@ -117,9 +118,7 @@ let g:user_emmet_leader_key='<c-e>'
 colorscheme molokai " カラースキームにmolokaiを設定する
 set t_Co=256 " iTerm2など既に256色環境なら無くても良い
 syntax enable " 構文に色を付ける
-"----------------------------------------------------------
-" neocomplete・neosnippetの設定
-"----------------------------------------------------------
+" neocomplete・neosnippetの設定----------------------------
 let g:python3_host_prog  = '/usr/bin/python3'
     " Vim起動時にneocompleteを有効にする
     let g:deoplete#enable_at_startup = 1
@@ -139,6 +138,29 @@ let g:python3_host_prog  = '/usr/bin/python3'
     " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
+"setting nerdcommenter----------------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
+"coding------------------------------------
+inoremap ( ()<LEFT>
+inoremap { {}<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+inoremap ` ``<LEFT>
 "End dein Scripts-------------------------
 
