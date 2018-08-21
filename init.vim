@@ -162,5 +162,7 @@ inoremap { {}<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap ` ``<LEFT>
+inoremap [ []<LEFT>
+inoremap a_f () => {<RETURN><RETURN>}<UP>
 "End dein Scripts-------------------------
 
